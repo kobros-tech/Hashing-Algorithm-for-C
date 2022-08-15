@@ -9,6 +9,17 @@
 #define Number 18278
 
 
+typedef struct node
+{
+    char word[46];
+    struct node *next;
+}
+node;
+
+
+node *table[Number];
+
+
 int hash(const char *word)
 {
     // Key is the same whether the first character is upper case or lower case
