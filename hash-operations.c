@@ -92,35 +92,18 @@ bool delete(const char *word)
     Key = hash(word);
 
     node *temp = table[Key];
-    node *pretemp;
 
 
     // Calculate the length of the word that needs to be searched in the hash table
     while (temp)
     {
-        pretemp = temp;
         if (strcasecmp(word, temp->word) == 0)
         {
             // The word matches the data
-            if (temp->next != NULL)
-            {
-                temp = temp->next;
-                pretemp->next = temp;
-                // strcpy(temp->word, "");
-                temp = NULL;
-                return true;
-            }
-            else
-            {
-                // strcpy(temp->word, "");
-                temp = NULL;
-                return true;
-            }
+            strcpy(temp->word, "");
+            return true;
         }
-        else
-        {
-            temp = temp->next;
-        }
+        temp = temp->next;
     }
     // Otherwise
     return false;
